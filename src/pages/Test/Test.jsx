@@ -17,8 +17,6 @@ function Test() {
         event.preventDefault();
         console.log(`API Key: ${keyValue}`); // do something with keyValue
         console.log(`Team: ${teamValue}`); // do something with teamValue
-        setKeyValue('')
-        setTeamValue('')
     }
 
     return(
