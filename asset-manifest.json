@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/illumiscore/static/css/main.d60a1d57.css",
-    "main.js": "/illumiscore/static/js/main.1febd92a.js",
+    "main.js": "/illumiscore/static/js/main.e3c3480f.js",
     "static/js/787.4585942a.chunk.js": "/illumiscore/static/js/787.4585942a.chunk.js",
     "index.html": "/illumiscore/index.html",
     "main.d60a1d57.css.map": "/illumiscore/static/css/main.d60a1d57.css.map",
-    "main.1febd92a.js.map": "/illumiscore/static/js/main.1febd92a.js.map",
+    "main.e3c3480f.js.map": "/illumiscore/static/js/main.e3c3480f.js.map",
     "787.4585942a.chunk.js.map": "/illumiscore/static/js/787.4585942a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d60a1d57.css",
-    "static/js/main.1febd92a.js"
+    "static/js/main.e3c3480f.js"
   ]
 }
