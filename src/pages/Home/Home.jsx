@@ -43,7 +43,7 @@ function Home() {
                             </div>
 
                             <div class="homeCardContent">
-                           
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, quisquam.
                             </div>
                         </a>
                     </div>
@@ -57,7 +57,7 @@ function Home() {
                             </div>
 
                             <div class="homeCardContent">
-                           
+                           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, eius.
                             </div>
                         </a>
                     </div>
