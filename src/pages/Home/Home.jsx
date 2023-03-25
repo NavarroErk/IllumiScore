@@ -33,11 +33,41 @@ function Home() {
             
             <section className="pricing landingItem landingItem4">
                 <h2>Pricing</h2>
-                <ul>
+                <div className="pricingDiv">
+                    <div class="homeCard">
+                        <a href="./" class="homeCardLink">
+                            <div class="homeCardBg"></div>
+
+                            <div class="homeCardTitle">
+                                Basic
+                            </div>
+
+                            <div class="homeCardContent">
+                           
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="homeCard">
+                        <a href="./" class="homeCardLink">
+                            <div class="homeCardBg"></div>
+
+                            <div class="homeCardTitle">
+                            Premium
+                            </div>
+
+                            <div class="homeCardContent">
+                           
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                    
+                {/* <ul>
                     <li>Possible Pricing Option 1</li>
                     <li>Possible Pricing Option 2</li>
                     <li>Possible Pricing Option 3</li>
-                </ul>
+                </ul> */}
             </section>
             <section className="support landingItem landingItem5">
                 <h2>Support</h2>
