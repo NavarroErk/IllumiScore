@@ -10,7 +10,7 @@ function App() {
   return (
     <React.Fragment>
       <Header></Header>
-      <Landing></Landing>
+      {/* <Landing></Landing> */}
       <Test></Test>
       <Footer></Footer>
     </React.Fragment>

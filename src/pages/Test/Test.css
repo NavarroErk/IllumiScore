@@ -1,20 +1,19 @@
 
-.container{
+.testContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: wheat;
-    height: 800px;
+    height: 700px;
 }
-.container>label{
-    margin-top: 20px;
+.testContainer>label{
+    margin-top: 10px;
     margin-bottom: 10px;
 }
-.container>input{
+.testContainer>input{
     width: 300px
 }
-.container>button{
+.testContainer>button{
     height: 30px;
     margin-top: 20px;
 }

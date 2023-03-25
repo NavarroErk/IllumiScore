@@ -1,0 +1,11 @@
+.landingContainer{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto auto auto; */
+    align-items: center;
+}
+.landingItem1{
+    grid-row: 1/5;
+    justify-self: center;
+    align-self: center;
+}

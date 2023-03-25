@@ -1,22 +1,21 @@
 import React from "react"
+import "./Header.css"
 
 function Header() {
 
 return(
     <header>
-        <nav className="">
-            <div className="">
-                <a className="navbar-brand" href="/Index">SportsLightController</a>
-                <div>
-                    <ul className="">
-                        <li className="nav-item">
-                            <a className="nav-link" href="/Index">Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+        <nav className="nav">
+            <div className="navBrandDiv">
+                <a className="navBrand" href="./">ILLUMISCORE</a>
+            </div>
+            <div className="navLinks">
+                <ul className="navList">
+                    <li className="navItem"><a href="./">Home</a></li>
+                    <li className="navItem"><a href="./">About</a></li>
+                    <li className="navItem"><a href="./">Services</a></li>
+                    <li className="navItem"><a href="./">Contact</a></li>
+                </ul>
             </div>
         </nav>
     </header>
