@@ -14,15 +14,15 @@ function Home() {
     <React.Fragment>
 
 
-    <main className="landingContainer">
-            <iframe className="landingItem landingItem1" width="51.5%" height="500px" src="https://www.youtube.com/embed/8WaTd3z8sHE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+    <main className="homeContainer">
+            <iframe className="homeItem homeItem1" width="51.5%" height="500px" src="https://www.youtube.com/embed/8WaTd3z8sHE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
         
-            <section className="landingItem landingItem2">
+            <section className="homeItem homeItem2">
                 <h1>Revolutionize Your Game-Day Experience With Our Dynamic Smart Lighting Solution</h1>
                 <p>Our cutting-edge technology reacts to your favorite team's scores, creating an immersive and unparalleled viewing experience.</p>
                 <a href="./" className="">Get started</a>
             </section>
-            <section className="features landingItem landingItem3">
+            <section className="features homeItem homeItem3">
                 <h2>Features</h2>
                 <ul>
                     <li>Straightforward setup process for hassle-free installation</li>
@@ -31,7 +31,7 @@ function Home() {
                 </ul>
             </section>
             
-            <section className="pricing landingItem landingItem4">
+            <section className="pricing homeItem homeItem4">
                 <h2>Pricing</h2>
                 <div className="pricingDiv">
                     <div class="homeCard">
@@ -69,7 +69,7 @@ function Home() {
                     <li>Possible Pricing Option 3</li>
                 </ul> */}
             </section>
-            <section className="support landingItem landingItem5">
+            <section className="support homeItem homeItem5">
                 <h2>Support</h2>
                 <ul>
                     <li><a href="./">Contact Us</a></li>

@@ -1,0 +1,44 @@
+.landingContainer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+
+}
+.landingHeadDiv{
+    position: absolute;
+    top: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+.landingHeadDiv > h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+}
+@keyframes flicker {
+    0% {
+      background-image: url('../../assets/bulbunlit.svg');
+    }
+    50% {
+      background-image: url('../../assets/bulblit.svg');
+      scale: 101%;
+      /* transform: rotate(180deg); */
+    }
+    100% {
+      background-image: url('../../assets/bulbunlit.svg');
+      /* transform: rotate(360deg); */
+    }
+  }
+
+
+.landingBulb {
+    height: 550px;
+    width: 350px;
+    animation: flicker 3s ease infinite;
+    background-size: cover;
+}
