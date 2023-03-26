@@ -32,6 +32,7 @@
   bottom: 150px;
   left: 150px;
   height: 250px;
+  background-color: red;
 }
 .landingItem3{
   grid-row: 3;
