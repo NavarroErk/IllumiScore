@@ -1,47 +1,51 @@
 import React, { useState } from "react";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import "./Test.css"
 
 function Test() {
 
-    const [keyValue, setKeyValue] = useState(' ')
-    const [teamValue, setTeamValue] = useState(' ')
-
-    function handleApiKeyChange(event) {
-        setKeyValue(event.target.value);
-    }
-    function handleTeamChange(event) {
-        setTeamValue(event.target.value);
-    }
-
-    function handleSubmit(event){
-        event.preventDefault();
-        console.log(`API Key: ${keyValue}`); // do something with keyValue
-        console.log(`Team: ${teamValue}`); // do something with teamValue
-
-        const formData = new FormData();
-        formData.append('api_key', keyValue);
-        formData.append('team_name', teamValue);
-
-        fetch('', {
-            method: "POST", 
-            body: formData
+    const [apiKey, setApiKey] = useState("");
+    const [lightBrand, setLightBrand] = useState("");
+    const [lightId, setLightId] = useState("");
+    const [modelNumber, setModelNumber] = useState("");
+    const [teamNames, setTeamNames] = useState("");
+    
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          apiKey: apiKey,
+          teamNames: teamNames,
+        }),
+      };
+      fetch("http://73.237.65.141:5001/api/LightData/LightInformation", requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
         })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error))
-    }
-
+        .catch((error) => {
+          console.error(error);
+        });
+    };
+      
     return(
-        <form onSubmit={handleSubmit}>
-            <div className="testContainer">
-                <h1>Test Page</h1>
-                <label htmlFor="keyInput">Enter LIFX API Key</label>
-                <input id="keyInput" name="keyInput" type="text" value={keyValue} onChange={handleApiKeyChange}/>
-                <label htmlFor="teamInput">Enter Team Name</label>
-                <input id="teamInput" name="teamInput" type="text" value={teamValue} onChange={handleTeamChange}/>
-                <button>SUBMIT</button>
-            </div>
-        </form>
+      <React.Fragment>
+        <Header></Header>
+          <form onSubmit={handleSubmit}>
+              <div className="testContainer">
+                  <h1>Test Page</h1>
+                  <label htmlFor="keyInput">Enter LIFX API Key</label>
+                  <input id="keyInput" name="apiKey" type="text" value={apiKey} onChange={(e) => setApiKey(e.target.value)} />
+                  <label htmlFor="teamNameInput">Enter Team Name</label>
+                  <input id="teamNameInput" name="teamNames" type="text" value={teamNames} onChange={(e) => setTeamNames(e.target.value)}/>
+                  <button type="submit">SUBMIT</button>
+              </div>
+          </form>
+        <Footer></Footer>
+      </React.Fragment>
     )
 }
 

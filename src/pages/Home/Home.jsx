@@ -1,13 +1,21 @@
-import React, { useRef } from "react";
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css"
 
 function Home() {
 
-    const videoRef = useRef()
-
-    function playVideo() {
-        videoRef.current.play()
-    }
+    const handleClick = () => {
+        fetch('http://73.237.65.141:5001/api/LightData')
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      };
 
     return(
 
@@ -20,7 +28,8 @@ function Home() {
             <section className="homeItem homeItem2">
                 <h1>Revolutionize Your Game-Day Experience With Our Dynamic Smart Lighting Solution</h1>
                 <p>Our cutting-edge technology reacts to your favorite team's scores, creating an immersive and unparalleled viewing experience.</p>
-                <a href="./" className="">Get started</a>
+                <Link to="/test" className="">Get started</Link>
+                <button onClick={handleClick} >Fetch Data</button>
             </section>
             <section className="features homeItem homeItem3">
                 <h2>Features</h2>
@@ -34,29 +43,29 @@ function Home() {
             <section className="pricing homeItem homeItem4">
                 <h2>Pricing</h2>
                 <div className="pricingDiv">
-                    <div class="homeCard">
-                        <a href="./" class="homeCardLink">
-                            <div class="homeCardBg"></div>
+                    <div className="homeCard">
+                        <a href="./" className="homeCardLink">
+                            <div className="homeCardBg"></div>
 
-                            <div class="homeCardTitle">
+                            <div className="homeCardTitle">
                                 Basic
                             </div>
 
-                            <div class="homeCardContent">
+                            <div className="homeCardContent">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, quisquam.
                             </div>
                         </a>
                     </div>
 
-                    <div class="homeCard">
-                        <a href="./" class="homeCardLink">
-                            <div class="homeCardBg"></div>
+                    <div className="homeCard">
+                        <a href="./" className="homeCardLink">
+                            <div className="homeCardBg"></div>
 
-                            <div class="homeCardTitle">
+                            <div className="homeCardTitle">
                             Premium
                             </div>
 
-                            <div class="homeCardContent">
+                            <div className="homeCardContent">
                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, eius.
                             </div>
                         </a>
