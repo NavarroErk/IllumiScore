@@ -2,12 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 import "./Home.css"
 
 function Home() {
 
     const handleClick = () => {
-        fetch('http://73.237.65.141:5001/api/LightData')
+        fetch('https://73.237.65.141:8080/api/LightData')
           .then(response => response.json())
           .then(data => {
             console.log(data);
@@ -17,12 +19,24 @@ function Home() {
           });
       };
 
+        
+      const [count, setCount] = useState(0);
+
+      function counterClick() {
+        setCount(count + 1)
+      }
+
+    //   let count = 0
+    //   function counterClick() {
+    //     count += 1
+    //     console.log(count);
+    //   }
+
     return(
 
     <React.Fragment>
-
-
-    <main className="homeContainer">
+        <Header/>
+        <main className="homeContainer">
             <iframe className="homeItem homeItem1" width="51.5%" height="500px" src="https://www.youtube.com/embed/8WaTd3z8sHE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
         
             <section className="homeItem homeItem2">
@@ -30,6 +44,8 @@ function Home() {
                 <p>Our cutting-edge technology reacts to your favorite team's scores, creating an immersive and unparalleled viewing experience.</p>
                 <Link to="/test" className="">Get started</Link>
                 <button onClick={handleClick} >Fetch Data</button>
+                <button onClick={counterClick}>Increment</button>
+                <p>{count}</p>
             </section>
             <section className="features homeItem homeItem3">
                 <h2>Features</h2>
@@ -46,11 +62,9 @@ function Home() {
                     <div className="homeCard">
                         <a href="./" className="homeCardLink">
                             <div className="homeCardBg"></div>
-
                             <div className="homeCardTitle">
                                 Basic
                             </div>
-
                             <div className="homeCardContent">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, quisquam.
                             </div>
@@ -60,33 +74,19 @@ function Home() {
                     <div className="homeCard">
                         <a href="./" className="homeCardLink">
                             <div className="homeCardBg"></div>
-
                             <div className="homeCardTitle">
                             Premium
                             </div>
-
                             <div className="homeCardContent">
-                           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, eius.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, eius.
                             </div>
                         </a>
                     </div>
                 </div>
-                    
-                {/* <ul>
-                    <li>Possible Pricing Option 1</li>
-                    <li>Possible Pricing Option 2</li>
-                    <li>Possible Pricing Option 3</li>
-                </ul> */}
             </section>
-            <section className="support homeItem homeItem5">
-                <h2>Support</h2>
-                <ul>
-                    <li><a href="./">Contact Us</a></li>
-                    <li><a href="./">FAQs</a></li>
-                </ul>
-            </section>
-    </main>
-</React.Fragment>
+        </main>
+        <Footer/>
+    </React.Fragment>
     )
 }
 

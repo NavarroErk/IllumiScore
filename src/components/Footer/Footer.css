@@ -5,8 +5,28 @@ footer{
     height: 50px;
     background-color: black;
     color: white;
-    z-index: 0;
+    z-index: 100;
 }
-
-
+.footerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.footerCopyright{
+    width: 300px;
+    text-align: center;
+}
+.footerList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    width: 200px;
+    margin-right: 70px;
+}
+.footerLink{
+    text-decoration: none;
+    color: white;
+}
 

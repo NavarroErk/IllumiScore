@@ -21,7 +21,7 @@ function Test() {
           teamNames: teamNames,
         }),
       };
-      fetch("http://73.237.65.141:5001/api/LightData/LightInformation", requestOptions)
+      fetch("https://73.237.65.141:8080/api/LightData/LightInformation", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);

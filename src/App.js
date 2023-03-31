@@ -16,11 +16,8 @@ function App() {
 
   return (
     <React.Fragment>
-    <Header/>    
-    {/* <Landing/> */}
-    <Home/>
-    {/* <Test/> */}
-    <Footer/>
+      <Landing/>
+      <Home/>
     </React.Fragment>
   );
 }

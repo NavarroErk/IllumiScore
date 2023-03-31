@@ -38,6 +38,10 @@
   grid-row: 3;
   grid-column-start: 5;
   grid-column-end: 8;
+  position: relative;
+  bottom: 100px;
+  right: 250px;
+  height: 250px;
   
 }
 .homeItem4{
@@ -150,11 +154,6 @@
 
 /*#endregion card*/
 
-.homeItem5{
-  grid-row: 5;
-  grid-column-start: 1;
-  grid-column-end: 4;
-}
 
 
 
@@ -167,8 +166,7 @@
 
     .homeItem2,
     .homeItem3,
-    .homeItem4,
-    .homeItem5 {
+    .homeItem4{
         grid-column-start: 1;
         grid-column-end: 3;
 
@@ -200,9 +198,6 @@
     }
   }
 
-.support{
-    margin-bottom: 100px;
-}
 
 @media only screen and (max-width: 979px) {
   .homeCard {

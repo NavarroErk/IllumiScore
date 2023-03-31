@@ -1,3 +1,18 @@
+body{
+  overflow: hidden;
+  animation-name: show-content;
+  animation-duration: 0.5s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes show-content {
+  from {
+    overflow-y: hidden;
+  }
+  to {
+    overflow-y: visible;
+  }
+}
 .landingContainer {
     position: absolute;
     top: 0;
@@ -9,7 +24,21 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    animation-name: remove;
+    animation-duration: 1.5s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
 }
+@keyframes remove {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 .landingHeadDiv {
@@ -65,4 +94,22 @@
     font-size: 64px;
     font-weight: bold;
     letter-spacing: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .landingHeadDiv{
+    height: 150px;
+    font-size: 32px;
+  }
+  .landingBulb>img{
+    height: 350px;
+  }
+  .landingMessageDiv{
+    grid-row: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
+  }
+  .landingMessage{
+    font-size: 42px;
+  }
 }

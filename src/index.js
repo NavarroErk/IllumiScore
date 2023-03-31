@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider, Route} from 'react-router-dom';
 import Test from './pages/Test/Test';
 import Login from './pages/Login/Login';
-
+import Register from './pages/Register/Register';
 
 
 const router = createBrowserRouter([
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
     path: "login",
     element: <Login/>
   },
+  {
+    path: "register", 
+    element: <Register/>
+  }
 ]);
 
 
@@ -29,7 +33,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+      <RouterProvider router={router}/>
   </React.StrictMode>
 );
 

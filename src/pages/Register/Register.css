@@ -1,58 +1,43 @@
-.loginContainer{
+.registerContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
 }
-.loginForm{
+.registerForm{
     display: flex;
     flex-direction: column;
     border: 2px solid #ccc;
     width: 450px;
-    height: 400px;
+    /* height: 80%; */
     padding: 20px;
     border-radius: 15px;
 }
-.loginHeaderDiv{
+.registerHeaderDiv{
     text-align: center;
 }
 .formGroup{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
+    /* inherited from Login.css */
 }
 .formGroup>input{
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: #f8f8f8;
-    font-size: 24px;
+    /* inherited from Login.css */
 }
-.rememberMeDiv{
-    display: flex;
-    flex-direction: row;
-}
-.rememberMeDiv>input{
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-.loginForm>button{
+.registerForm>button{
     display: inline-block;
     padding: 10px 20px;
     font-size: 20px;
     font-weight: bold;
-    border: none;
     border-radius: 3px;
     background-color: #000000;
     color: #fff;
     cursor: pointer;
     margin-top: 10px;
+    margin-bottom: 50px;
 }
 
 @media screen and (max-width: 768px) {
-    .loginForm{
+    .registerForm{
         width: 300px;
         border: none;
     }
