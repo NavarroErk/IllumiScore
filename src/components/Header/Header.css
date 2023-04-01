@@ -20,6 +20,9 @@ nav {
   margin-left: 10px;
   color: black;
 }
+.displayNone{
+  display: none;
+}
 
 .navList {
   display: flex;

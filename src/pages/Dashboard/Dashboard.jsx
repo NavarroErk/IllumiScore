@@ -13,6 +13,7 @@ import moment from "moment"
 
 function Dashboard() {
     const userData = useContext(UserContext);
+    console.log("userData.isLoggedIn: " + userData.isLoggedIn);
     const navigate = useNavigate();
 
     const localizer = momentLocalizer(moment);
@@ -22,15 +23,15 @@ function Dashboard() {
             end: new Date(), 
             title: "My event"
         }
-    ]
+    ]   
 
-    console.log("userData.isLoggedIn: " + userData.isLoggedIn);
+        // useEffect runs everytime userData.isLoggedIn, or navigate change values
+        useEffect(() => {
+            if (userData.isLoggedIn !== true) {
+              navigate('../');
+            }
+          }, [userData.isLoggedIn, navigate]);
 
-    useEffect(() => {
-        if (userData.isLoggedIn !== true) {
-          navigate('../');
-        }
-      }, [userData.isLoggedIn]);
 
     return(
         <>

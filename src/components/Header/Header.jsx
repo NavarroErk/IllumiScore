@@ -8,11 +8,22 @@ import { UserContext } from "../..";
 
 
 function Header() {
-
+    const userData = useContext(UserContext);
     const navigate = useNavigate();
 
+    const [googleSignInDisplay, setGoogleSignInDisplay] = useState(userData.isLoggedIn);
 
-    const userData = useContext(UserContext);
+    useEffect(() => {
+        setGoogleSignInDisplay(userData.isLoggedIn)
+        let signInDiv = document.querySelector(".signInDiv");
+        if (googleSignInDisplay && signInDiv) {
+                signInDiv.style.display = "none";
+            }
+    }, [userData.isLoggedIn])
+
+    
+
+    
 
 
     function handleCallbackResponse(response) {
@@ -24,14 +35,16 @@ function Header() {
         console.log("email: " + email);
         userData.email = email;
         userData.password = "fakepassword"
-        console.log("user.email: " + JSON.stringify(userData.email));
+        console.log("userData.email: " + JSON.stringify(userData.email));
 
         fetch(`https://73.237.65.141:8080/api/UserData/Username?username=${userData.email}`)
             .then(response => {
                 if (!response.ok) {
                 throw new Error('Network response was not ok');
                 } else {
-                    userData.isLoggedIn = true
+                    console.log("THIS IS THE ELSE STATEMENT");
+                    userData.isLoggedIn = true;
+                    console.log("THIS IS THE ELSE STATEMENT AFTER isLoggedIn = true: " + userData.isLoggedIn);
                     navigate("dashboard")
                     return response.json();
                 }
@@ -63,6 +76,7 @@ function Header() {
                 username: userData.email,
                 password: userData.password
                 };
+                console.log("THIS IS DATA IN HEADER: " + data);
 
                 fetch(url, {
                 method: 'POST',
@@ -72,8 +86,8 @@ function Header() {
                 body: JSON.stringify(data)
                 })
                 .then(response => response.json())
-                .then(data => {
-                    console.log(data)
+                .then(() => {
+                    userData.isLoggedIn = true;
                     navigate("dashboard")
                 })
                 .catch(error => console.error(error));;
@@ -96,6 +110,12 @@ function Header() {
         )
     }, [])
 
+    // let signInDiv = document.querySelector(".signInDiv");
+    // useEffect(() => {
+    //     if (userData.isLoggedIn === true) {
+    //       signInDiv.classList.add("displayNone")
+    //     }
+    //   }, [userData.isLoggedIn, navigate]);
 
 
 return(
