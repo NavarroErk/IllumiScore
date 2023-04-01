@@ -3,7 +3,6 @@ import { useRef, useState, useEffect } from "react";
 import "./Register.css"
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
-import axios from "../../api/axios";
 
 
 //// must start with upper or lowercase letter, must be followed by 3-23 characters that can be lower or uppercase letters, digits, hyphen, or underscore.

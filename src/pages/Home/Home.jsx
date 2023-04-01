@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import Landing from "../Landing/Landing";
 import "./Home.css"
 
 function Home() {
@@ -57,7 +58,9 @@ function Home() {
             </section>
             
             <section className="pricing homeItem homeItem4">
-                <h2>Pricing</h2>
+                <h2>Pricing <br />
+                <Link to="/dashboard">Dashboard</Link>
+                </h2>
                 <div className="pricingDiv">
                     <div className="homeCard">
                         <a href="./" className="homeCardLink">

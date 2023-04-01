@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./Test.css"
+import { UserContext } from "../..";
 
 function Test() {
+
+
+
+    const user = useContext(UserContext);
+
+    function clickBtn() {
+      console.log(user.name);
+    }
+
 
     const [apiKey, setApiKey] = useState("");
     const [lightBrand, setLightBrand] = useState("");
@@ -41,7 +51,8 @@ function Test() {
                   <input id="keyInput" name="apiKey" type="text" value={apiKey} onChange={(e) => setApiKey(e.target.value)} />
                   <label htmlFor="teamNameInput">Enter Team Name</label>
                   <input id="teamNameInput" name="teamNames" type="text" value={teamNames} onChange={(e) => setTeamNames(e.target.value)}/>
-                  <button type="submit">SUBMIT</button>
+                  {/* <button type="submit">SUBMIT</button> */}
+                  <button onClick={clickBtn}>console log</button>
               </div>
           </form>
         <Footer></Footer>

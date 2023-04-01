@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useState, createContext, useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider, Route} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Router} from 'react-router-dom';
 import Test from './pages/Test/Test';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Home from './pages/Home/Home';
 
+
+
+export const UserContext = React.createContext();
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+  },
+  {
+    path: "/",
+    element: <Home />
   },
   {
     path: "test",
@@ -25,15 +34,20 @@ const router = createBrowserRouter([
   {
     path: "register", 
     element: <Register/>
+  }, 
+  {
+    path: "dashboard", 
+    element: <Dashboard />
   }
 ]);
-
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <UserContext.Provider value={{UserContext}}>
       <RouterProvider router={router}/>
+    </UserContext.Provider>
   </React.StrictMode>
 );
 

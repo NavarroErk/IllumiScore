@@ -3,15 +3,12 @@ import { Link } from "react-router-dom";
 import { useRef, useState, useEffect, useContext } from "react";
 import './Login.css'
 import Footer from "../../components/Footer/Footer";
-import AuthContext from "../../context/AuthProvider";
-import axios from "../../api/axios";
-
+import { UserContext } from "../..";
 
 
 
 
 function Login() {
-    const { setAuth } = useContext(AuthContext)
     const userRef = useRef();
     const errRef = useRef();
     
@@ -35,8 +32,6 @@ function Login() {
         try {
             const response = await fetch()
 
-
-
             setUser("");
             setPwd("");
             setSuccess(true);
@@ -48,7 +43,11 @@ function Login() {
 
 
 
+    const userData = useContext(UserContext);
 
+    function clickBtn() {
+      console.log("userData.email: " + userData.email);
+    }
 
 
       
@@ -137,6 +136,7 @@ function Login() {
                     </div>
                     <button>Submit</button>
                     <p>Need an account? <Link to="/register">Register</Link></p>
+                    <button onClick={clickBtn}>console log</button>
                     
                 </form>
             </div>

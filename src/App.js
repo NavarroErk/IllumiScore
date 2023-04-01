@@ -8,10 +8,16 @@ import Home from './pages/Home/Home';
 import Test from './pages/Test/Test';
 import Landing from './pages/Landing/Landing';
 import Layout from './pages/Layout/Layout'
+import { useContext } from 'react';
+import { UserContext } from '.';
 
 
 
 function App() {
+
+  const userData = useContext(UserContext);
+  console.log("userData: " + userData);
+
 
 
   return (
