@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import { Calendar } from "react-big-calendar";
 import { momentLocalizer } from "react-big-calendar";
 import moment from "moment"
+import Cookies from "js-cookie";
+import Test from "../Test/Test";
 
 
 function Dashboard() {
@@ -25,12 +27,40 @@ function Dashboard() {
         }
     ]   
 
-        // useEffect runs everytime userData.isLoggedIn, or navigate change values
+
+
+
+    const illumiScoreJWToken = Cookies.get("illumiScoreJWToken");
+        // useEffect runs everytime userData.isLoggedIn, navigate, or userData.email change values
         useEffect(() => {
-            if (userData.isLoggedIn !== true) {
+            if (!illumiScoreJWToken) {
+                userData.isLoggedIn = false;
+                if (userData.isLoggedIn !== true) {
               navigate('../');
             }
-          }, [userData.isLoggedIn, navigate]);
+            }
+            
+            // } else {
+            //     fetch(`https://73.237.65.141:8080/api/UserData/Username?username=${userData.email}`)
+            //     .then(response => response.json())
+            //     .then((data) => {
+            //         let userVerification = data.username;
+            //         if (userVerification !== illumiScoreJWToken) {
+            //             // navigate("../")
+            //             console.log("USERVER IS NOT EQUAL TO JWTOKEN");
+            //             console.log("userVerification: " + userVerification);
+            //             console.log("TOKEN: " + illumiScoreJWToken);
+            //         }
+            //     })
+            //     .catch(error => console.error(error));
+            
+          }, [userData.isLoggedIn, navigate, userData.email, illumiScoreJWToken, userData]);
+
+          
+
+          
+
+          
 
 
     return(
@@ -67,6 +97,7 @@ function Dashboard() {
                     </div>
                 </div>
             </main>
+            <Test />
             <Footer />
         </>
     )

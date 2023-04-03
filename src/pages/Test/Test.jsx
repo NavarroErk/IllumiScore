@@ -28,6 +28,7 @@ function Test() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           apiKey: apiKey,
+          lightId: "all",
           teamNames: teamNames,
         }),
       };
@@ -43,19 +44,23 @@ function Test() {
       
     return(
       <React.Fragment>
-        <Header></Header>
+        {/* <Header></Header> */}
           <form onSubmit={handleSubmit}>
               <div className="testContainer">
                   <h1>Test Page</h1>
                   <label htmlFor="keyInput">Enter LIFX API Key</label>
                   <input id="keyInput" name="apiKey" type="text" value={apiKey} onChange={(e) => setApiKey(e.target.value)} />
+
+                  {/* <label htmlFor="lightIdInput">Enter Team Name</label>
+                  <input id="teamNameInput" name="teamNames" type="text" value={teamNames} onChange={(e) => setTeamNames(e.target.value)}/> */}
+
                   <label htmlFor="teamNameInput">Enter Team Name</label>
                   <input id="teamNameInput" name="teamNames" type="text" value={teamNames} onChange={(e) => setTeamNames(e.target.value)}/>
                   {/* <button type="submit">SUBMIT</button> */}
                   <button onClick={clickBtn}>console log</button>
               </div>
           </form>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
       </React.Fragment>
     )
 }

@@ -9,10 +9,23 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Home from './pages/Home/Home';
+import Cookies from 'js-cookie';
+import SignedOut from './pages/SignedOut/SignedOut';
+
 
 
 
 export const UserContext = React.createContext();
+
+
+
+
+
+
+
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -22,10 +35,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />
-  },
-  {
-    path: "test",
-    element: <Test/>,
   },
   {
     path: "login",
@@ -38,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "dashboard", 
     element: <Dashboard />
+  },
+  {
+    path: "signedout", 
+    element: <SignedOut />
   }
 ]);
 

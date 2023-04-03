@@ -5,26 +5,31 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import { UserContext } from "../..";
+import Cookies from "js-cookie";
 
 
 function Header() {
     const userData = useContext(UserContext);
     const navigate = useNavigate();
-
-    const [googleSignInDisplay, setGoogleSignInDisplay] = useState(userData.isLoggedIn);
+    const illumiScoreJWToken = Cookies.get("illumiScoreJWToken");
 
     useEffect(() => {
-        setGoogleSignInDisplay(userData.isLoggedIn)
-        let signInDiv = document.querySelector(".signInDiv");
-        if (googleSignInDisplay && signInDiv) {
-                signInDiv.style.display = "none";
+        if (document.querySelector("#googleSignInBtn")) {
+            document.querySelector("#signOutBtn").hidden = true;
+        } else {
+            document.querySelector("#signOutBtn").hidden = false;
+        }
+
+        if (illumiScoreJWToken) {
+            document.querySelector("#googleSignInBtn").hidden = true;
+            if (!document.querySelector("#googleSignInBtn")) {
+                document.querySelector("#signOutBtn").hidden = false;
+            } else {
+                document.querySelector("#signOutBtn").hidden = false;
             }
-    }, [userData.isLoggedIn])
-
+        }
+    }, [])
     
-
-    
-
 
     function handleCallbackResponse(response) {
         console.log(response);
@@ -32,24 +37,37 @@ function Header() {
         let userObject = jwtDecode(response.credential);
         console.log("userObject: " + JSON.stringify(userObject));
         let email = userObject.email;
+        // let password = userObject.picture;
+        let password = userObject.password;
         console.log("email: " + email);
+        console.log("password: " + password);
         userData.email = email;
-        userData.password = "fakepassword"
+        userData.password = password;
         console.log("userData.email: " + JSON.stringify(userData.email));
+        console.log("userData.password: " + JSON.stringify(userData.password));
+        // userData.illumiScoreJWToken = {
+        //     email: userData.email,
+        //     password: userData.password
+        // };
+        // const illumiScoreJWToken = userData.email;
+        userData.illumiScoreJWToken = userData.email
 
         fetch(`https://73.237.65.141:8080/api/UserData/Username?username=${userData.email}`)
             .then(response => {
                 if (!response.ok) {
                 throw new Error('Network response was not ok');
                 } else {
-                    console.log("THIS IS THE ELSE STATEMENT");
+                    console.log("THIS IS THE ELSE STATEMENT" + userData.isLoggedIn);
                     userData.isLoggedIn = true;
                     console.log("THIS IS THE ELSE STATEMENT AFTER isLoggedIn = true: " + userData.isLoggedIn);
-                    navigate("dashboard")
+                    Cookies.set('illumiScoreJWToken', userData.illumiScoreJWToken, { expires: 1/24 });
+                    // console.log(userData.illumiScoreJWToken);
+                    navigate("dashboard");
                     return response.json();
                 }
             })
             .then(data => {
+                alert(JSON.stringify(data.username))
                 console.log(data);
                 // Do something with the data
             })
@@ -88,6 +106,7 @@ function Header() {
                 .then(response => response.json())
                 .then(() => {
                     userData.isLoggedIn = true;
+                    Cookies.set('illumiScoreJWToken', userData.illumiScoreJWToken, { expires: 1/24 });
                     navigate("dashboard")
                 })
                 .catch(error => console.error(error));;
@@ -104,11 +123,17 @@ function Header() {
         })
 
         google.accounts.id.renderButton(
-            document.querySelector(".signInDiv"), 
+            document.querySelector("#googleSignInBtn"), 
             // theme and size of button
             {theme: "outline", size: "medium"}
         )
     }, [])
+
+    function signOutClicked() {
+        Cookies.remove("illumiScoreJWToken")
+        userData.isLoggedIn = false;
+        navigate("../signedout")
+    }
 
     // let signInDiv = document.querySelector(".signInDiv");
     // useEffect(() => {
@@ -123,13 +148,16 @@ return(
     <header>
         <nav className="nav">
             <div className="navBrandDiv">
-                <Link className="navBrand" to='/'>ILLUMISCORE</Link>
+                {/* <Link className="navBrand" to='/'>ILLUMISCORE</Link> */}
+                <p className="navBrand">ILLUMISCORE</p>
             </div>
             <div className="signInDiv"></div>
             <div className="navLinks">
                 <ul className="navList">
-                    <li className="navItem"><Link to='/login'>Login</Link></li>
-                    <li className="navItem"><Link to="/register">Register</Link></li>
+                    {/* <li className="navItem"><Link to='/login'>Login</Link></li> */}
+                    {/* <li className="navItem"><Link to="/register">Register</Link></li> */}
+                    <div className="navItem" id="googleSignInBtn"></div>
+                    <button onClick={signOutClicked} className="navItem" id="signOutBtn">Sign Out</button>
                 </ul>
             </div>
         </nav>

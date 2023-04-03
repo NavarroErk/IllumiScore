@@ -25,8 +25,8 @@ body{
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
     animation-name: remove;
-    animation-duration: 1.5s;
-    animation-delay: 1.5s;
+    animation-duration: 1s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
 }
 @keyframes remove {
